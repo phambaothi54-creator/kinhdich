@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#201b17">
+  <title>Lục Hào · Dịch học</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="paper-texture"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="seal">易</span><span><b>LỤC HÀO</b><small>六爻 · DỊCH HỌC</small></span></a>
+    <nav><a href="#gieo">Gieo quẻ</a><a href="#luan">Luận quẻ</a><a href="#lichsu">Lịch sử</a></nav>
+    <span class="privacy">● Xử lý tại thiết bị</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">DỊCH LÝ · CHIÊM NGHIỆM · THAM KHẢO</div>
+      <h1>Quan thời, biến dịch<br><em>thấu lẽ cát hung</em></h1>
+      <p>Công cụ lập quẻ Lục Hào với quẻ chủ, quẻ biến, quẻ hỗ, hào động và phần luận giải tham khảo.</p>
+      <a class="primary-link" href="#gieo">Bắt đầu gieo quẻ <span>↘</span></a>
+      <div class="hero-mark">☯</div>
+    </section>
+
+    <section id="gieo" class="panel">
+      <div class="section-head"><div><span class="kicker">01 / KHỞI QUẺ</span><h2>Đặt câu hỏi và gieo quẻ</h2></div><span class="ornament">━━━━ ◈ ━━━━</span></div>
+      <label for="question">Câu hỏi muốn chiêm nghiệm</label>
+      <textarea id="question" rows="2" maxlength="300" placeholder="Ví dụ: Công việc này trong ba tháng tới có thuận lợi không?"></textarea>
+      <div class="controls">
+        <div class="field"><label for="method">Phương pháp lập quẻ</label><select id="method"><option value="coins">Ba đồng xu · 6 lần gieo</option><option value="random">Lập quẻ ngẫu nhiên</option></select></div>
+        <div class="field"><label for="topic">Chủ đề</label><select id="topic"><option value="general">Tổng quát</option><option value="career">Công việc – sự nghiệp</option><option value="love">Tình cảm – hôn nhân</option><option value="money">Tài chính – tài lộc</option><option value="study">Học tập – thi cử</option><option value="health">Sức khỏe</option><option value="travel">Xuất hành – đi xa</option></select></div>
+      </div>
+      <div class="method-note" id="methodNote">Gieo 3 đồng xu sáu lần, mỗi lần ghi nhận một hào từ dưới lên trên. Có thể nhập kết quả từng lần để tái lập quẻ.</div>
+      <div id="coinInputs" class="coin-inputs">
+        <div class="coin-title">Kết quả sáu lần gieo <small>(hào 1 ở dưới cùng)</small></div>
+        <div class="coin-grid" id="coinGrid"></div>
+      </div>
+      <div class="actions"><button id="randomize" class="button secondary">Tạo kết quả gieo</button><button id="cast" class="button primary">Lập quẻ <span>✦</span></button></div>
+      <p class="hint">Quy ước: 6 = lão âm (động), 7 = thiếu dương, 8 = thiếu âm, 9 = lão dương (động).</p>
+    </section>
+
+    <section id="result" class="result hidden">
+      <div class="section-head"><div><span class="kicker">02 / KẾT QUẢ LẬP QUẺ</span><h2>Lá quẻ của bạn</h2></div><button id="print" class="text-button">In / lưu PDF ↗</button></div>
+      <div class="question-display" id="questionDisplay"></div>
+      <div class="hexagram-grid">
+        <article class="hex-card"><div class="hex-label">QUẺ CHỦ · 本卦</div><h3 id="mainName">—</h3><div id="mainLines" class="hex-lines"></div><p id="mainDesc"></p></article>
+        <article class="hex-card changed"><div class="hex-label">QUẺ BIẾN · 之卦</div><h3 id="changedName">—</h3><div id="changedLines" class="hex-lines"></div><p id="changedDesc"></p></article>
+        <article class="hex-card"><div class="hex-label">QUẺ HỖ · 互卦</div><h3 id="nuclearName">—</h3><div id="nuclearLines" class="hex-lines"></div><p>Gợi ý về diễn biến bên trong và nền tảng của sự việc.</p></article>
+      </div>
+      <div class="analysis-grid">
+        <article class="subpanel"><h3>Hào động</h3><div id="moving"></div></article>
+        <article class="subpanel"><h3>Luận giải khái quát</h3><div id="interpretation"></div></article>
+      </div>
+      <div class="subpanel detail"><h3>Bảng sáu hào</h3><div class="table-wrap"><table><thead><tr><th>Hào</th><th>Âm / Dương</th><th>Trạng thái</th><th>Gợi ý</th></tr></thead><tbody id="lineTable"></tbody></table></div></div>
+      <p class="disclaimer">Phần diễn giải mang tính tham khảo văn hóa và tự chiêm nghiệm, không phải dự đoán chắc chắn hay căn cứ duy nhất cho quyết định quan trọng.</p>
+    </section>
+
+    <section id="luan" class="guide">
+      <div class="section-head"><div><span class="kicker">03 / CÁCH ĐỌC</span><h2>Đọc quẻ như thế nào?</h2></div></div>
+      <div class="guide-grid">
+        <div><b>01 · Quẻ chủ</b><p>Phản ánh tượng và bối cảnh ban đầu của câu hỏi.</p></div>
+        <div><b>02 · Hào động</b><p>Chỉ vị trí biến chuyển; nhiều hào động cần xét tổng thể, không tách rời câu hỏi.</p></div>
+        <div><b>03 · Quẻ biến</b><p>Biểu thị xu hướng sau biến động, không đồng nghĩa kết quả cố định.</p></div>
+        <div><b>04 · Quẻ hỗ</b><p>Gợi mở tầng nguyên nhân hoặc tiến trình tiềm ẩn ở giữa quẻ.</p></div>
+      </div>
+    </section>
+
+    <section id="lichsu" class="panel history">
+      <div class="section-head"><div><span class="kicker">04 / NHẬT KÝ</span><h2>Lịch sử gieo quẻ</h2></div><button id="clearHistory" class="text-button">Xóa lịch sử</button></div>
+      <div id="historyList" class="history-list"><p class="empty">Chưa có lần gieo quẻ nào được lưu trên thiết bị này.</p></div>
+    </section>
+  </main>
+  <footer><span>易 · LỤC HÀO</span><span>Gieo quẻ để soi chiếu, không phó mặc.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
